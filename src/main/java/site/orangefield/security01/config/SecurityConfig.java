@@ -27,7 +27,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .anyRequest().permitAll() // 위의 주소가 아니라면 모든 권한이 있음
                 .and()
                 .formLogin()
-                .loginPage("/loginForm");
-
+                .loginPage("/loginForm")
+                .loginProcessingUrl("/login") // 시큐리티가 자격증명을 확인할 URL 지정
+                .defaultSuccessUrl("/");
     }
 }
